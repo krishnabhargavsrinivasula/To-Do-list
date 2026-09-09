@@ -1,0 +1,1093 @@
+/* =========================================
+   ROOT VARIABLES
+========================================= */
+
+:root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+
+    --background: #f4f6fb;
+    --card-background: #ffffff;
+    --text: #1f2937;
+    --secondary-text: #6b7280;
+
+    --border: #e5e7eb;
+    --input-background: #ffffff;
+
+    --success: #10b981;
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+
+    --shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+
+    --radius: 18px;
+
+    --transition: 0.25s ease;
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark-mode {
+    --background: #111827;
+    --card-background: #1f2937;
+    --text: #f9fafb;
+    --secondary-text: #9ca3af;
+
+    --border: #374151;
+    --input-background: #111827;
+
+    --shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+
+    display: flex;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.sr-only {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+
+    border: 0;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.app-container {
+    width: 100%;
+    max-width: 850px;
+
+    background: var(--card-background);
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        background-color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+
+.app-header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+}
+
+
+.app-header p {
+    color: var(--secondary-text);
+
+    font-size: 0.95rem;
+}
+
+
+.theme-btn {
+    width: 46px;
+    height: 46px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    background: var(--input-background);
+
+    color: var(--text);
+
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition),
+        background-color var(--transition),
+        border-color var(--transition);
+}
+
+
+.theme-btn:hover {
+    transform: rotate(15deg) scale(1.05);
+}
+
+
+.theme-btn:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   TASK INPUT
+========================================= */
+
+.task-form {
+    display: flex;
+    gap: 12px;
+}
+
+
+.task-form input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 15px 18px;
+
+    border: 2px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--input-background);
+
+    color: var(--text);
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+.task-form input::placeholder,
+.search-box input::placeholder {
+    color: var(--secondary-text);
+}
+
+
+.task-form input:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+
+.add-btn {
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 0 22px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition:
+        transform var(--transition),
+        background-color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+.add-btn:hover {
+    background: var(--primary-hover);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(99, 102, 241, 0.25);
+}
+
+
+.add-btn:active {
+    transform: translateY(0);
+}
+
+
+.add-btn:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   VALIDATION
+========================================= */
+
+.validation-message {
+    min-height: 22px;
+
+    margin-top: 7px;
+
+    color: var(--danger);
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.search-section {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+
+.search-box {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 16px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--input-background);
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+.search-box:focus-within {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+
+.search-box input {
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.stats-section {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+
+.stat-card {
+    padding: 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    background: var(--input-background);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition);
+}
+
+
+.stat-card:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--primary);
+}
+
+
+.stat-card span {
+    display: block;
+
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+    margin-bottom: 3px;
+}
+
+
+.stat-card small {
+    color: var(--secondary-text);
+
+    font-size: 0.8rem;
+}
+
+
+/* =========================================
+   FILTER CONTROLS
+========================================= */
+
+.task-controls {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+.filter-buttons {
+    display: flex;
+
+    gap: 6px;
+
+    padding: 5px;
+
+    border-radius: 12px;
+
+    background: var(--input-background);
+}
+
+
+.filter-btn {
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 8px 14px;
+
+    background: transparent;
+
+    color: var(--secondary-text);
+
+    font-size: 0.88rem;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+
+.filter-btn:hover {
+    color: var(--text);
+
+    transform: translateY(-1px);
+}
+
+
+.filter-btn.active {
+    background: var(--primary);
+
+    color: white;
+
+    box-shadow:
+        0 4px 10px rgba(99, 102, 241, 0.2);
+}
+
+
+.filter-btn:focus-visible,
+.clear-btn:focus-visible,
+.edit-btn:focus-visible,
+.delete-btn:focus-visible {
+    outline: 3px solid var(--primary);
+
+    outline-offset: 2px;
+}
+
+
+.clear-btn {
+    border: none;
+
+    background: transparent;
+
+    color: var(--danger);
+
+    font-size: 0.85rem;
+
+    cursor: pointer;
+
+    padding: 8px;
+
+    transition:
+        color var(--transition),
+        transform var(--transition);
+}
+
+
+.clear-btn:hover {
+    color: var(--danger-hover);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   TASK LIST
+========================================= */
+
+.task-list {
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.task-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background: var(--input-background);
+
+    animation: taskAppear 0.3s ease;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        opacity var(--transition);
+}
+
+
+.task-item:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================
+   CHECKBOX
+========================================= */
+
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    accent-color: var(--success);
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   TASK CONTENT
+========================================= */
+
+.task-content {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.task-title {
+    display: block;
+
+    word-break: break-word;
+
+    font-size: 0.98rem;
+
+    line-height: 1.5;
+
+    transition:
+        color var(--transition),
+        opacity var(--transition);
+}
+
+
+.task-date {
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--secondary-text);
+
+    font-size: 0.72rem;
+}
+
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+
+    opacity: 0.5;
+}
+
+
+.task-item.completed {
+    opacity: 0.75;
+}
+
+
+/* =========================================
+   TASK ACTIONS
+========================================= */
+
+.task-actions {
+    display: flex;
+
+    gap: 5px;
+
+    flex-shrink: 0;
+}
+
+
+.edit-btn,
+.delete-btn {
+    width: 36px;
+    height: 36px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 0.95rem;
+
+    transition:
+        background-color var(--transition),
+        transform var(--transition);
+}
+
+
+.edit-btn:hover {
+    background: rgba(99, 102, 241, 0.1);
+
+    transform: scale(1.08);
+}
+
+
+.delete-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state {
+    padding: 55px 20px;
+
+    text-align: center;
+
+    color: var(--secondary-text);
+
+    animation: emptyAppear 0.4s ease;
+}
+
+
+.empty-icon {
+    font-size: 3rem;
+
+    margin-bottom: 15px;
+
+    animation: floating 2.5s ease-in-out infinite;
+}
+
+
+.empty-state h2 {
+    color: var(--text);
+
+    font-size: 1.2rem;
+
+    margin-bottom: 7px;
+}
+
+
+.empty-state p {
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.app-footer {
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+}
+
+
+.app-footer p {
+    color: var(--secondary-text);
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    backdrop-filter: blur(5px);
+
+    animation: fadeIn 0.2s ease;
+}
+
+
+.modal.hidden {
+    display: none;
+}
+
+
+.modal-content {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background: var(--card-background);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.25);
+
+    animation: modalAppear 0.25s ease;
+}
+
+
+.modal-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.modal-header h2 {
+    font-size: 1.3rem;
+}
+
+
+.close-btn {
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--input-background);
+
+    color: var(--text);
+
+    font-size: 1.4rem;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition),
+        transform var(--transition);
+}
+
+
+.close-btn:hover {
+    transform: rotate(90deg);
+}
+
+
+.modal-content label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 0.85rem;
+
+    color: var(--secondary-text);
+}
+
+
+.modal-content input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 2px solid var(--border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: var(--input-background);
+
+    color: var(--text);
+
+    font-size: 1rem;
+
+    transition: border-color var(--transition);
+}
+
+
+.modal-content input:focus {
+    border-color: var(--primary);
+}
+
+
+.modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.cancel-btn,
+.save-btn {
+    padding: 10px 16px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition:
+        transform var(--transition),
+        background-color var(--transition);
+}
+
+
+.cancel-btn {
+    background: var(--input-background);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+}
+
+
+.save-btn {
+    background: var(--primary);
+
+    color: white;
+}
+
+
+.cancel-btn:hover,
+.save-btn:hover {
+    transform: translateY(-1px);
+}
+
+
+.save-btn:hover {
+    background: var(--primary-hover);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes taskAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes emptyAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes floating {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .app-container {
+        padding: 22px;
+
+        border-radius: 18px;
+    }
+
+    .app-header {
+        align-items: flex-start;
+    }
+
+    .task-form {
+        flex-direction: column;
+    }
+
+    .add-btn {
+        min-height: 48px;
+    }
+
+    .task-controls {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .filter-buttons {
+        justify-content: center;
+    }
+
+    .clear-btn {
+        align-self: flex-end;
+    }
+
+    .task-item {
+        align-items: flex-start;
+    }
+
+    .task-actions {
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 420px) {
+
+    .app-container {
+        padding: 18px;
+    }
+
+    .app-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .stats-section {
+        gap: 7px;
+    }
+
+    .stat-card {
+        padding: 12px 5px;
+    }
+
+    .stat-card span {
+        font-size: 1.2rem;
+    }
+
+    .stat-card small {
+        font-size: 0.7rem;
+    }
+
+    .filter-btn {
+        padding: 7px 10px;
+
+        font-size: 0.8rem;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
